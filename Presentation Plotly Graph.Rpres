@@ -1,0 +1,52 @@
+Presentation of Plotly Graph
+========================================================
+author: James Jackson
+date: 24 December 2016 (My mum's birthday)
+autosize: true
+
+Context for interactive graph
+========================================================
+
+We will use one the the standard R data sets called "warpbreaks".  This data set has 2 variables; the type of wool and the tension.  The data collected the gives the number of warp breaks per loom given the wool type and tension
+
+The data appears clean so we will use the raw data.
+
+We will plot the number of warp breaks against the type of wool with the tension of the wool being displayed with colour.
+- Breaks (number)
+- Wool (type A or B)
+- Tension (level L, M, or H)
+
+Slide With Data
+========================================================
+Below is a subset of the full data we are plotting
+```{r}
+head(warpbreaks,8)
+```
+
+Interactive Plotly Plot
+========================================================
+A bar chart is displayed showing the data in an visual form.
+```{r echo=FALSE}
+library(plotly)
+set.seed(100)
+dataWarpBreaks <- warpbreaks
+f <- list(
+  family = "Courier New, monospace",
+  size = 18,
+  color = "#7f7f7f"
+)
+x <- list(
+  title = "Wool Type",
+  titlefont = f
+)
+y <- list(
+  title = "# Breaks",
+  titlefont = f
+)
+
+
+p=plot_ly(dataWarpBreaks, x = ~wool, y = ~breaks, color = ~tension) %>%
+  layout(xaxis = x, yaxis = y)
+htmlwidgets::saveWidget(as.widget(p), file = "demo.html")
+```
+<iframe src="demo.html" style="position:absolute;height:80%;width:100%"></iframe>
