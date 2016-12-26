@@ -1,0 +1,24 @@
+W1Q1
+
+1)
+A server.R file containing a call to shinyServer()
+A ui.R file containing a call to shinyUI()
+
+2)
+Missing a comma in the sidebar panel
+
+3)
+mu <- input$mean
+The limits of the slider are set incorrectly and giving an error.
+The server.R output name isn't the same as the plotOutput command used in ui.R.
+
+4)
+Shiny Gadgets are designed to be used by R users in the middle of a data analysis.
+Shiny Gadgets can be run on a user’s personal computer, unlike a regular Shiny App which needs to be hosted online.
+''
+Shiny Gadgets are designed to be used by R users in the middle of a data analysis.
+Shiny Gadgets are designed to have small user interfaces that fit on one page.
+
+5)
+No arguments are defined for pickXY()
+

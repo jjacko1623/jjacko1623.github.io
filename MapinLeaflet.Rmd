@@ -1,0 +1,28 @@
+---
+title: "Map of work places in Leaflet"
+author: "James Jackson"
+date: "December 22, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(leaflet)
+setwd("C:/Users/Sophy/Desktop/JJ Coursera/Data Products")
+
+
+TasDevIcon <- makeIcon("./TasDevil.jpeg", iconWidth = 40, iconHeight = 40, iconAnchorX = 4, iconAnchorY = 4)
+
+
+JJMap <- data.frame(lat = c(-42.8821, -37.8136), lng = c(147.3272, 144.9631))
+JJMap %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup="JJ's Work Offices", icon = TasDevIcon)
+
+
+
+```
